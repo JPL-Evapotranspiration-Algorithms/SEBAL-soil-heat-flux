@@ -3,7 +3,7 @@ requires = ["setuptools>=60", "setuptools-scm>=8.0", "wheel"]
 
 [project]
 name = "SEBAL-soil-heat-flux"
-version = "1.0.1"
+version = "1.1.2"
 description = "Soil Heat Flux Remote Sensing Method from the Surface Energy Balance for Land (SEBAL) Evapotranspiration Model in Python"
 readme = "README.md"
 authors = [

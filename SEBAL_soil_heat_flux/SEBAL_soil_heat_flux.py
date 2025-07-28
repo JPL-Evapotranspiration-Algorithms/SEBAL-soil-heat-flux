@@ -10,20 +10,23 @@ def calculate_SEBAL_soil_heat_flux(
         NDVI: Union[Raster, np.ndarray], 
         albedo: Union[Raster, np.ndarray]) -> Union[Raster, np.ndarray]:
     """
-    This function calculates the soil heat flux (G) in the Surface Energy Balance Algorithm for Land (SEBAL) model.
-    The formula used in the function is a simplification of the more complex relationship between these variables in the energy balance at the surface.
-    
+    Calculates the soil heat flux (G) in the Surface Energy Balance Algorithm for Land (SEBAL) model.
+
+    The formula used is a simplification of the more complex relationship between these variables in the energy balance at the surface.
+
     Parameters:
-    Rn (np.ndarray): Net radiation at the surface.
-    ST_C (np.ndarray): Surface temperature in Celsius.
-    NDVI (np.ndarray): Normalized Difference Vegetation Index, indicating the presence and condition of vegetation.
-    albedo (np.ndarray): Measure of the diffuse reflection of solar radiation.
-    
+        Rn (np.ndarray or Raster): Net radiation at the surface.
+        ST_C (np.ndarray or Raster): Surface temperature in Celsius.
+        NDVI (np.ndarray or Raster): Normalized Difference Vegetation Index, indicating the presence and condition of vegetation.
+        albedo (np.ndarray or Raster): Measure of the diffuse reflection of solar radiation.
+
     Returns:
-    np.ndarray: The soil heat flux (G), a key component in the energy balance.
-    
+        np.ndarray or Raster: The soil heat flux (G), a key component in the energy balance.
+
     Reference:
-    "Evapotranspiration Estimation Based on Remote Sensing and the SEBAL Model in the Bosten Lake Basin of China" [^1^][1]
+        Bastiaanssen, W. G. M., Menenti, M., Feddes, R. A., & Holtslag, A. A. M. (1998).
+        A remote sensing surface energy balance algorithm for land (SEBAL): 1. Formulation.
+        Journal of Hydrology, 212-213, 198–212. https://doi.org/10.1016/S0022-1694(98)00253-4
     """
     # Empirical coefficients used in the calculation
     coeff1 = 0.0038
